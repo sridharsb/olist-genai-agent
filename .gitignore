@@ -1,37 +1,22 @@
-# ==========================
 # Python
-# ==========================
 __pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.venv/
-venv/
-.env
-.env.*
+*.pyc
 
-# ==========================
-# Databases & Data
-# ==========================
-db/*.db          # exclude olist.db
-data/            # raw Kaggle CSVs
+# Virtual environment
+venv/
+
+# Databases / generated files
+db/olist.db
+db/*.db
+
+# Chroma / vector store
+chroma_brazil_store/
+
+# Data files
+data/
 *.csv
 *.zip
 
-# ==========================
-# Vector stores / embeddings
-# ==========================
-chroma_brazil_store/
-
-# ==========================
-# OS / Editor
-# ==========================
+# OS files
 .DS_Store
 Thumbs.db
-.vscode/
-
-# ==========================
-# Logs / temp
-# ==========================
-*.log
-tmp/
