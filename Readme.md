@@ -2,7 +2,7 @@
 
 A conversational GenAI-powered analytics agent for exploring the Brazilian **Olist e‑commerce dataset** using natural language.
 
-> **TL;DR**: Ask business questions in plain English → get **SQL-backed answers, charts, and explanations**.
+> User: Ask business questions in plain English → get **SQL-backed answers, charts, and explanations**.
 
 ---
 
