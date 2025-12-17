@@ -1,0 +1,19 @@
+{
+  "beleza_saude": "Beauty and health products include cosmetics, skincare, supplements, and personal care items. These categories typically show high repeat purchases and strong brand loyalty.",
+  "cama_mesa_banho": "Bed, table, and bath products include linens, towels, and home textiles. Demand is often seasonal and influenced by promotions.",
+  "informatica_acessorios": "Computer accessories include peripherals, cables, and components. These products tend to have moderate prices and high competition.",
+  "moveis_decoracao": "Furniture and home decor products usually have higher ticket sizes and longer delivery times.",
+  "eletrodomesticos": "Home appliances such as refrigerators and microwaves typically generate high revenue but lower order volume.",
+  "telefonia": "Telephony includes smartphones and accessories. It is a high-demand category with strong price sensitivity.",
+  "fashion_roupa_feminina": "Women's fashion includes clothing and accessories, often driven by trends and seasonal demand.",
+  "fashion_roupa_masculina": "Men's fashion products generally show steadier demand compared to women's fashion.",
+  "brinquedos": "Toys are highly seasonal, with sales spikes during holidays and special occasions.",
+  "utilidades_domesticas": "Household utilities include kitchenware and daily-use items with steady demand.",
+  "alimentos": "Food products often have lower margins but consistent repeat purchases.",
+  "livros_interesse_geral": "Books typically show long-tail sales patterns with stable but moderate demand.",
+  "pet_shop": "Pet products benefit from high repeat purchases and customer loyalty.",
+  "relogios_presentes": "Watches and gifts are often purchased for special occasions, leading to seasonal sales spikes.",
+  "construcao_ferramentas": "Construction and tools products cater to home improvement and professional use cases.",
+  "automotivo": "Automotive products include accessories and parts, often driven by necessity rather than impulse.",
+  "seguros_e_servicos": "Services and insurance products generate low volume but high margin transactions."
+}

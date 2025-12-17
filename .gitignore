@@ -1,0 +1,37 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.env.*
+
+# ==========================
+# Databases & Data
+# ==========================
+db/*.db          # exclude olist.db
+data/            # raw Kaggle CSVs
+*.csv
+*.zip
+
+# ==========================
+# Vector stores / embeddings
+# ==========================
+chroma_brazil_store/
+
+# ==========================
+# OS / Editor
+# ==========================
+.DS_Store
+Thumbs.db
+.vscode/
+
+# ==========================
+# Logs / temp
+# ==========================
+*.log
+tmp/
