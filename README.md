@@ -45,14 +45,84 @@ Example questions:
 
 ## 🧩 High-Level Architecture
 
-User → Streamlit UI → Conversation Router → Agent Core
+┌────────────────────────┐
+│        User (UI)       │
+│  Browser / Streamlit   │
+└───────────┬────────────┘
+            │ Natural Language Query
+            ▼
+┌────────────────────────┐
+│     Streamlit UI       │
+│  (Presentation Layer)  │
+│                        │
+│ • Input handling       │
+│ • Charts / Tables      │
+│ • KPI cards            │
+│ • Explain button       │
+└───────────┬────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│      Agent Core        │
+│ (Orchestration Layer)  │
+│                        │
+│ • Conversation router  │ 
+│ • Intent detection     │
+│ • Follow-up handling   │
+│ • Memory management    │
+│ • Filter construction  │
+│ • Safety guardrails    │
+└───────────┬────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│  Knowledge + Reasoning │
+│                        │
+│ • Glossary lookup      │
+│ • Category aliases     │
+│ • Product enrichment   │
+│ • Business insights    │
+└───────────┬────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│     SQL Generator      │
+│                        │
+│ • Intent → SQL template│
+│ • Filter injection     │
+│ • LIMIT / ORDER BY     │
+│ • SQL validation       │
+└───────────┬────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│        DuckDB          │
+│  (Analytics Engine)    │
+│                        │
+│ • Pre-built views      │
+│ • Aggregations         │
+│ • Fast analytical SQL  │
+└───────────┬────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│      Result Layer      │
+│                        │
+│ • Pandas DataFrame     │
+│ • KPI extraction       │
+│ • Chart generation     │
+│ • Insight generation   │
+└───────────┬────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│ Optional LLM Services  │
+│                        │
+│ • Intent fallback      │
+│ • Explanation (on-demand) │
+│ • Gemini / OpenAI / Local │
+└────────────────────────┘
 
-Agent Core:
-- Intent detection (rules + LLM fallback)
-- Memory & follow-up resolution
-- Knowledge lookup & category aliasing
-
-Agent Core → SQL Builder (guarded) → DuckDB → Results → Insights → UI
 
 ---
 
