@@ -1,8 +1,12 @@
 # agent/agent_core.py
+"""
+Core agent logic for processing queries and generating responses.
+"""
 
 import duckdb
 import re
 from datetime import datetime
+from typing import Dict, Any, Optional, Union
 from dateutil.relativedelta import relativedelta
 
 from agent.intent_resolver import detect_intent
@@ -40,14 +44,16 @@ METRIC_KEYWORDS = {
 # ----------------------------------
 # Helpers
 # ----------------------------------
-def metric_from_question(q: str):
+def metric_from_question(q: str) -> Optional[str]:
+    """Extract metric type from question text."""
     for metric, words in METRIC_KEYWORDS.items():
         if any(w in q for w in words):
             return metric
     return None
 
 
-def metric_from_intent(intent: str):
+def metric_from_intent(intent: str) -> Optional[str]:
+    """Extract metric type from intent name."""
     if not intent:
         return None
     return intent.split("_")[0]
@@ -128,7 +134,20 @@ def apply_filters(sql: str, filters: dict):
 # ----------------------------------
 # Main entry point
 # ----------------------------------
-def answer(question: str):
+def answer(question: str) -> Union[str, Dict[str, Any]]:
+    """
+    Main entry point for processing user questions.
+    
+    Args:
+        question: User's natural language question
+        
+    Returns:
+        Either a string error message or a dict with:
+        - intent: detected intent name
+        - df: pandas DataFrame with results
+        - summary: text summary
+        - insight: optional insight text
+    """
     q = question.strip().lower()
 
     # ---- Safety ----
@@ -198,16 +217,23 @@ def answer(question: str):
             filters["limit"] = 1
 
     # ---- Build & execute SQL ----
-    sql = SQL_TEMPLATES[intent]
-    sql = apply_filters(sql, filters)
-    validate_sql(sql)
+    try:
+        sql = SQL_TEMPLATES[intent]
+        sql = apply_filters(sql, filters)
+        validate_sql(sql)
 
-    con = duckdb.connect(DB_PATH)
-    df = con.execute(sql).fetchdf()
-    con.close()
+        con = duckdb.connect(DB_PATH)
+        df = con.execute(sql).fetchdf()
+        con.close()
 
-    if df.empty:
-        return "No data found."
+        if df.empty:
+            return "No data found for your query. Try adjusting your filters or question."
+    except KeyError:
+        return f"Intent '{intent}' not found in SQL templates."
+    except ValueError as e:
+        return f"SQL validation error: {str(e)}"
+    except Exception as e:
+        return f"Database error: {str(e)}"
 
     remember_intent(intent)
     remember_modifiers(filters)

@@ -3,7 +3,10 @@ INTENT_SYNONYMS = {
     "highest_revenue_category": [
         "highest revenue category",
         "category with highest revenue",
-        "most revenue generating category"
+        "most revenue generating category",
+        "which category has the highest revenue",
+        "what category has highest revenue",
+        "top revenue category"
     ],
 
     "lowest_revenue_category": [
@@ -13,7 +16,9 @@ INTENT_SYNONYMS = {
 
     "revenue_by_category": [
         "revenue by category",
-        "category wise revenue"
+        "category wise revenue",
+        "show revenue by category",
+        "list revenue by category"
     ],
 
     "yearly_revenue": [
