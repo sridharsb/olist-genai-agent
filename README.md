@@ -1,5 +1,8 @@
 # 🛒 Olist GenAI Analytics Assistant
 
+Demo Video (Google Drive):
+https://drive.google.com/file/d/1adJLjPKFtWsXlq9eZPSIkOedSYjLidWC/view?usp=sharing
+
 A conversational GenAI-powered analytics agent for exploring the Brazilian **Olist e‑commerce dataset** using natural language.
 
 > User: Ask business questions in plain English → get **SQL-backed answers, charts, and explanations**.
